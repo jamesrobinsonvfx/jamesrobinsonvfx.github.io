@@ -39,6 +39,8 @@ jobs:
     env:
       # HUGO_VERSION: "hugo v0.110.0"
       HUGO_VERSION: "0.110.0"
+      DEST: public
+      TOKEN: ${{ secrets.TOKEN }}
     steps:
       - name: Check version
         if: ${{ github.event.inputs.hugoVersion }}
