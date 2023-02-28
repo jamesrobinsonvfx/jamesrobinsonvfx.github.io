@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>volume on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/volume/</link>
+    <description>Recent content in volume on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/volume/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VDB Reshape SDF Close</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/vdb-reshape-sdf-close/</link>
+      <pubDate>Thu, 29 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/vdb-reshape-sdf-close/</guid>
+      <description>Faster way to dilate and erode an SDF</description>
+    </item>
+    
+  </channel>
+</rss>

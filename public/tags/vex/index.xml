@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vex on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/vex/</link>
+    <description>Recent content in vex on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/vex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Attribute Bindings</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/attribute-bindings/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/attribute-bindings/</guid>
+      <description>Write to attributes with one name while using another in your code</description>
+    </item>
+    
+    <item>
+      <title>Vex Source</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/vex-source/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/vex-source/</guid>
+      <description>Use one VOP network or VEX wrangle to drive many others without channel referencing</description>
+    </item>
+    
+    <item>
+      <title>Decay Values</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/decay-values/</link>
+      <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/decay-values/</guid>
+      <description>Decay values in a Solver SOP while respecting substeps</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>tools on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/tools/</link>
+    <description>Recent content in tools on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linewriter</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/linewriter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/linewriter/</guid>
+      <description>Easily create lines of text geometry</description>
+    </item>
+    
+    <item>
+      <title>MPlay Batch</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/mplay-batch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/mplay-batch/</guid>
+      <description>Batch write sequences from MPlay</description>
+    </item>
+    
+    <item>
+      <title>HDA Guide Geometry</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/hda-guide-geometry/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/hda-guide-geometry/</guid>
+      <description>Add a simple visualizer to your HDA using Houdini&amp;rsquo;s built-in Guide Geometry feature</description>
+    </item>
+    
+    <item>
+      <title>Clip by Attribute Sop</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/clip-by-attribute-sop/</link>
+      <pubDate>Mon, 06 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/clip-by-attribute-sop/</guid>
+      <description>Clip primitives by a user-specified attribute</description>
+    </item>
+    
+    <item>
+      <title>Display Intermediate Results And Visualization Geo in an HDA</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/display-intermediate-results-and-viz-geo/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/display-intermediate-results-and-viz-geo/</guid>
+      <description>Different methods for switching between visualization geo in an HDA or subnet</description>
+    </item>
+    
+    <item>
+      <title>Houdini Package Template</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/houdini-package-template/</link>
+      <pubDate>Tue, 28 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/houdini-package-template/</guid>
+      <description>Template repo for creating simple (or not so simple) Houdini Packages</description>
+    </item>
+    
+    <item>
+      <title>Attribute Bindings</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/attribute-bindings/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/attribute-bindings/</guid>
+      <description>Write to attributes with one name while using another in your code</description>
+    </item>
+    
+    <item>
+      <title>Hair Cards to Guide Curves</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/hair-cards-to-guide-curves/</link>
+      <pubDate>Wed, 08 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/hair-cards-to-guide-curves/</guid>
+      <description>Convert hair card geometry (like from a game engine) to guide curves</description>
+    </item>
+    
+    <item>
+      <title>Inspect Node Data</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/inspect-node-data/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/inspect-node-data/</guid>
+      <description>SOP-level HDA for storing, retrieving, and inspecting parameters from nodes</description>
+    </item>
+    
+    <item>
+      <title>Color Palette Ramp</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/colorpalette-ramp/</link>
+      <pubDate>Sat, 09 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/colorpalette-ramp/</guid>
+      <description>Houdini SOP node to extract a color palette from an image using K-Means Clustering</description>
+    </item>
+    
+  </channel>
+</rss>

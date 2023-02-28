@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>utility on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/utility/</link>
+    <description>Recent content in utility on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/utility/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linewriter</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/linewriter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/linewriter/</guid>
+      <description>Easily create lines of text geometry</description>
+    </item>
+    
+    <item>
+      <title>Wrangle to Gist</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/wrangle-to-gist/</link>
+      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/wrangle-to-gist/</guid>
+      <description>Post code snippets to your Gist feed from within Houdini</description>
+    </item>
+    
+  </channel>
+</rss>

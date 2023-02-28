@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Attribute Bindings | James Robinson 🌊</title>
+<meta name="keywords" content="vex, attributes, tools, tips">
+<meta name="description" content="Write to attributes with one name while using another in your code">
+<meta name="author" content="">
+<link rel="canonical" href="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.31a1ec8ce187fd44934e170601c332903bca9bc902e9bca2c4b7205cf7203d32.css" integrity="sha256-MaHsjOGH/USTThcGAcMykDvKm8kC6byixLcgXPcgPTI=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://www.jamesrobinsonvfx.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.jamesrobinsonvfx.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.jamesrobinsonvfx.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.jamesrobinsonvfx.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.jamesrobinsonvfx.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+<meta property="og:title" content="Attribute Bindings" />
+<meta property="og:description" content="Write to attributes with one name while using another in your code" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/" />
+<meta property="og:image" content="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-09-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-12T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview.png" />
+<meta name="twitter:title" content="Attribute Bindings"/>
+<meta name="twitter:description" content="Write to attributes with one name while using another in your code"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Blog 🪶",
+      "item": "https://www.jamesrobinsonvfx.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Attribute Bindings",
+      "item": "https://www.jamesrobinsonvfx.com/blog/attribute-bindings/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Attribute Bindings",
+  "name": "Attribute Bindings",
+  "description": "Write to attributes with one name while using another in your code",
+  "keywords": [
+    "vex", "attributes", "tools", "tips"
+  ],
+  "articleBody": " Hipfile: jamesr_attributebindings.hiplc\nBasics Let’s build a super simple setup that applies randomness to an attribute on some points. The user will specify which attribute they want to write to. We also want the user to be able to scale the points by any attribute they specify without changing any of the code.\nSo the first thing we will need is some logic to randomize a value, and write it out. In this case, let’s start with pscale so we can see what’s happening.\nScale some points\nfloat r = rand(i@ptnum); f@pscale *= r * chf(\"global_scale\"); Easy enough!\npoint(), setpointattrib() and Friends Reading Next, we’ll need to fetch the user-specified attribute that we want to scale the randomness by. The most familiar way is by using the point() function.\nUser scale attribute\nf@coolscale = pow(relbbox(0, v@P).z, 4.0); In this case we have a user-specified attribute called coolscale. We’ll use the point() function and a string parameter chs() to get that value.\nUsing the custom attribute\nSo far so good. We’ve queried the custom user attribute and scaled our randomness by it.\nWriting We’ve successfully written to pscale so far. But remember that our setup’s requirements call for the user to be able to specify the output attribute. Currently, we have it hardcoded to f@pscale.\nIn order to write to a custom attribute, let’s add another parameter to specify what the attribute should be called and use the setpointattrib() function to write the value to the points.\nOutput Attrib parameter\nfloat r = rand(i@ptnum); float user_scale = point(0, chs(\"user_scale_attrib\"), i@ptnum); float scale = r * user_scale * chf(\"global_scale\"); setpointattrib(0, chs(\"output_attrib\"), i@ptnum, scale); While this function certainly does what we are asking, it is painfully slow when iterating over many many points, which isn’t an uncommon task! So how can we do it all a bit better? Let’s take a look at the Bindings tab.\nAttribute Bindings Tab Attribute Bindings tab\nThe idea is pretty straightforward. The Attribute Name is the name of the attribute you really want to write to. Vex Parameter is simply what you’ll call that attribute inside your code. Think of this as an alias for the attribute name that you actually care about.\nWe can modify our setup to use this method instead:\nRewrite code\nfloat r = rand(i@ptnum); f@scaled = r * f@user_scale * chf(\"global_scale\"); Our code has just gotten much simpler. We only need to refer the attributes that we put in the Vex Parameter parameters using the familiar @ syntax.\nNew bindings\nWe can take advantage of the chs() channels we already made, and just channel reference them in the bindings section. That way the interface can stay user-friendly (especially for whenever you want to promote these up to the interface of a digital asset or something).\nSpeed Comparison Let’s do a comparison with the Performance Monitor.\nPerformance Test\nWith ~112k points we can see that the setpointattrib() method takes about 0.081 seconds to cook, whereas the Attribute Bindings method takes 0.002 seconds! That’s a pretty big difference, though 0.08 seconds is pretty negligible too.\nWhat happens if we try with a a point cloud consisting of 30,000,000 points?\nPerformance Test - 30mio points\nAttribute Bindings wins by a factor of ~30x on my machine. Now the difference between 0.13s and 3.9s per cook might not seem like a huge amount if you’re already waiting a minute or so per-frame to process a heavy point cloud (like a big FLIP sim). But consider that in this example we are writing just a single attribute, in one wrangle. In a real-world setup, you might have several attributes and be doing a few different things in different wrangles and steps which can really add up!\nVolumes This technique is especially useful when dealing with fields in Volume VOPs. Have you ever dived inside a Gas Turbulence DOP or any similar nodes? If you look in the Attribute Bindings section, you’ll see that SideFX uses these all the time! It’s how you’re able to specify the name of any Control Field, but internally they only need to use one name!\nLet’s try it out on our own. We’ll create a Volume VOP that adds noise to both density and temperature. There’s actually a shortcut toggle we can use without needing to set all the names ourselves.\nBind Each to Density\nVolume Bindings\nCreate a Volume VOP. Add some nodes inside. Don’t add any extra Bind Export nodes, just pipe them out to density. On the Volume Bindings tab uncheck Autobind by Name. Enable Bind Each to Density. Now we’ve applied the same operation to all of the fields! This is really useful if you’re creating any tools that modify volumes, and you want the user to be able to easily run over fields called anything.\nAttributes to Create Attributes to Create - Default\nThis parameter is often overlooked, and its default is just * - which means any attributes referred to in the wrangle using the @ syntax will be created if it they don’t exist already.\nThe default is usually fine. But sometimes, you might be using an attribute temporarily just to do some sort of calculation, and you don’t actually want it to be created and passed along through the output. In that case, you can just use the ^ character plus the attribute name to skip it! This is also useful if you have a tool that allows a user attribute to passed in but does not require it.\nTake this for example:\nWe have a setup that modifies the thickness of some curves. By default, the code will apply some randomness. The user is also given the option to provide an attribute by which to multiply the randomized thickness. For clarity, let’s provide them a sensible default like thicknessscale (sort of how vellum and other tools across houdini fill it in too).\nParameter defaults and code\nIf we structure our code like so:\nfloat r = rand(@seed + 65536); f@pscale = r * f@scale * chf(\"global_scale\"); with the following attribute bindings:\nAttribute Bindings\nwe would expect that the f@pscale attribute is scaled by some random number, and the curves will change shape.\nBut what happens if the user doesn’t want to do any extra scaling, and they didn’t specify any attribute? If no attribute is provided, and the binding is left blank or the attribute doesn’t exist we wind up with a bit of an issue…\nScales are zero\nAll the scales are now zero! Well that’s not really what we want… if the user doesn’t specify an attribute (or if it doesn’t exist), we should carry on and happily apply just the randomized value to the thickness. Let’s modify the code a bit:\nfloat @scale = 1.0; // Initialize it in case the user doesn't float r = rand(@seed + 65536); f@pscale = r * @scale * chf(\"global_scale\"); Scales are working now\nThis works excellently! Now, even though the attribute is missing, everything is just multiplied by 1.0, so we’re in the clear. But let’s look at the attributes now…\nExtra Attribute\nOh no! Since that default value we have sitting in there wasn’t cleared out, and since it doesn’t already exist on the points, we wound up creating some attribute called thicknessscale with a value of 1.0! That’s sort of annoying. If the user didn’t ask for an attribute to be created, we should really just leave it alone.\nLeaving it alone is simple. Just exclude it from that Attributes to Create parameter.\nExclude f@scale attribute\n* ^scale ^seed The attributes specified in this list are the same as the Vex Parameters you’re using in your code, even if they are bound to something different.\nNo extra attributes left\nIf the attribute does exist on the points beforehand, don’t worry - this option won’t cause it to be deleted. It will still pass through just as expected, with the added bonus that since it’s being ignored in the Attributes to Create parameter, we aren’t able to actually write to it, which means we can’t muck it up with our code!\nResult Let’s see it in action with the user specifying their own scaling attribute on top of our randomization:\nFinal Result\nFinal Notes Groups We can do most of the same stuff with groups. Just remember than Vex expects the prefix i@group_ before group names, which also applies to the Vex Parameter parameter in the bindings section.\nGroup Bindings\nGroup Bindings Example\nAn important note - if you’re using the Output Selection Group parameter to visualize the group in the viewport (and pass the selection to downstream nodes), note that this parameter is expecting Group Name not the Vex Parameter!\nOutput Selection Group\n",
+  "wordCount" : "1451",
+  "inLanguage": "en",
+  "image":"https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview.png","datePublished": "2021-09-12T00:00:00Z",
+  "dateModified": "2021-09-12T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.jamesrobinsonvfx.com/blog/attribute-bindings/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "James Robinson 🌊",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.jamesrobinsonvfx.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://www.jamesrobinsonvfx.com" accesskey="h" title="James Robinson 🌊 (Alt + H)">James Robinson 🌊</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://www.jamesrobinsonvfx.com" title="blog 🪶">
+                    <span>blog 🪶</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jamesrobinsonvfx.com/projects" title="projects 🪛">
+                    <span>projects 🪛</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jamesrobinsonvfx.com/snippets" title="snippets 🧰">
+                    <span>snippets 🧰</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jamesrobinsonvfx.com/links" title="links 🔗">
+                    <span>links 🔗</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jamesrobinsonvfx.com/about" title="about 👋">
+                    <span>about 👋</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jamesrobinsonvfx.com/search/" title="search 🔍">
+                    <span>search 🔍</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Attribute Bindings
+    </h1>
+    <div class="post-meta"><span title='2021-09-12 00:00:00 +0000 UTC'>September 12, 2021</span>&nbsp;·&nbsp;7 min
+
+</div>
+  </header> 
+<figure class="entry-cover"><a href="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview.png" target="_blank"
+            rel="noopener noreferrer">
+        <img loading="lazy" srcset="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview_hua6122a29c4d56111b3c17efb334f8a59_62361_360x0_resize_box_3.png 360w ,https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview_hua6122a29c4d56111b3c17efb334f8a59_62361_480x0_resize_box_3.png 480w ,https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview.png 650w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://www.jamesrobinsonvfx.com/blog/attribute-bindings/images/preview.png" alt="Cover Photo" 
+            width="650" height="426"></a>
+        <p>Attribute bindings</p>
+</figure><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#basics" aria-label="Basics">Basics</a></li>
+                <li>
+                    <a href="#point-setpointattrib-and-friends" aria-label="point(), setpointattrib() and Friends"><code>point()</code>, <code>setpointattrib()</code> and Friends</a><ul>
+                        
+                <li>
+                    <a href="#reading" aria-label="Reading">Reading</a></li>
+                <li>
+                    <a href="#writing" aria-label="Writing">Writing</a></li>
+                <li>
+                    <a href="#attribute-bindings-tab" aria-label="Attribute Bindings Tab">Attribute Bindings Tab</a></li>
+                <li>
+                    <a href="#speed-comparison" aria-label="Speed Comparison">Speed Comparison</a></li></ul>
+                </li>
+                <li>
+                    <a href="#volumes" aria-label="Volumes">Volumes</a></li>
+                <li>
+                    <a href="#attributes-to-create" aria-label="Attributes to Create">Attributes to Create</a><ul>
+                        
+                <li>
+                    <a href="#result" aria-label="Result">Result</a></li></ul>
+                </li>
+                <li>
+                    <a href="#final-notes" aria-label="Final Notes">Final Notes</a><ul>
+                        
+                <li>
+                    <a href="#groups" aria-label="Groups">Groups</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><blockquote>
+<p>Hipfile: <a href="houdini/hip/jamesr_attributebindings.hiplc">jamesr_attributebindings.hiplc</a></p>
+</blockquote>
+<h2 id="basics">Basics<a hidden class="anchor" aria-hidden="true" href="#basics">🔗</a></h2>
+<p>Let&rsquo;s build a super simple setup that applies randomness to an attribute on some points. The user will specify which attribute they want to write to. We also want the user to be able to scale the points by any attribute they specify without changing any of the code.</p>
+<p>So the first thing we will need is some logic to randomize a value, and write it out. In this case, let&rsquo;s start with <code>pscale</code> so we can see what&rsquo;s happening.</p>
+<figure>
+    <img loading="lazy" src="images/scale-points.png"
+         alt="Scale some points"/> <figcaption>
+            <p>Scale some points</p>
+        </figcaption>
+</figure>
+
+<pre tabindex="0"><code class="language-vex" data-lang="vex">float r = rand(i@ptnum);
+
+f@pscale *= r * chf(&#34;global_scale&#34;);
+</code></pre><p>Easy enough!</p>
+<h2 id="point-setpointattrib-and-friends"><code>point()</code>, <code>setpointattrib()</code> and Friends<a hidden class="anchor" aria-hidden="true" href="#point-setpointattrib-and-friends">🔗</a></h2>
+<h3 id="reading">Reading<a hidden class="anchor" aria-hidden="true" href="#reading">🔗</a></h3>
+<p>Next, we&rsquo;ll need to fetch the user-specified attribute that we want to scale the randomness by. The most familiar way is by using the <code>point()</code> function.</p>
+<figure>
+    <img loading="lazy" src="images/user-scale.png"
+         alt="User scale attribute"/> <figcaption>
+            <p>User scale attribute</p>
+        </figcaption>
+</figure>
+
+<pre tabindex="0"><code class="language-vex" data-lang="vex">f@coolscale = pow(relbbox(0, v@P).z, 4.0);
+</code></pre><p>In this case we have a user-specified attribute called <code>coolscale</code>. We&rsquo;ll use the <code>point()</code> function and a string parameter <code>chs()</code> to get that value.</p>
+<figure>
+    <img loading="lazy" src="images/user-scale-point-func.png"
+         alt="Using the custom attribute"/> <figcaption>
+            <p>Using the custom attribute</p>
+        </figcaption>
+</figure>
+
+<p>So far so good. We&rsquo;ve queried the custom user attribute and scaled our randomness by it.</p>
+<h3 id="writing">Writing<a hidden class="anchor" aria-hidden="true" href="#writing">🔗</a></h3>
+<p>We&rsquo;ve successfully written to <code>pscale</code> so far. But remember that our setup&rsquo;s requirements call for the user to be able to specify the output attribute. Currently, we have it hardcoded to <code>f@pscale</code>.</p>
+<p>In order to write to a custom attribute, let&rsquo;s add another parameter to specify what the attribute should be called and use the <code>setpointattrib()</code> function to write the value to the points.</p>
+<figure>
+    <img loading="lazy" src="images/output-attrib.png"
+         alt="Output Attrib parameter"/> <figcaption>
+            <p>Output Attrib parameter</p>
+        </figcaption>
+</figure>
+
+<pre tabindex="0"><code class="language-vex" data-lang="vex">float r = rand(i@ptnum);
+
+float user_scale = point(0, chs(&#34;user_scale_attrib&#34;), i@ptnum);
+
+float scale =  r * user_scale * chf(&#34;global_scale&#34;);
+
+setpointattrib(0, chs(&#34;output_attrib&#34;), i@ptnum, scale);
+</code></pre><p>While this function certainly does what we are asking, <em>it is painfully slow</em> when iterating over many many points, which isn&rsquo;t an uncommon task! So how can we do it all a bit better? Let&rsquo;s take a look at the <strong>Bindings</strong> tab.</p>
+<h3 id="attribute-bindings-tab">Attribute Bindings Tab<a hidden class="anchor" aria-hidden="true" href="#attribute-bindings-tab">🔗</a></h3>
+<figure>
+    <img loading="lazy" src="images/attrib-bindings.png"
+         alt="Attribute Bindings tab"/> <figcaption>
+            <p>Attribute Bindings tab</p>
+        </figcaption>
+</figure>
+
+<p>The idea is pretty straightforward. The <strong>Attribute Name</strong> is the name of the attribute you <em>really</em> want to write to. <strong>Vex Parameter</strong> is simply what you&rsquo;ll call that attribute inside your code. Think of this as an <em>alias</em> for the attribute name that you actually care about.</p>
+<p>We can modify our setup to use this method instead:</p>
+<figure>
+    <img loading="lazy" src="images/rewrite-code.gif"
+         alt="Rewrite code"/> <figcaption>
+            <p>Rewrite code</p>
+        </figcaption>
+</figure>
+
+<pre tabindex="0"><code class="language-vex" data-lang="vex">float r = rand(i@ptnum);
+
+f@scaled =  r * f@user_scale * chf(&#34;global_scale&#34;);
+</code></pre><p>Our code has just gotten much simpler. We only need to refer the attributes that we put in the <strong>Vex Parameter</strong> parameters using the familiar <code>@</code> syntax.</p>
+<figure>
+    <img loading="lazy" src="images/new-bindings.png"
+         alt="New bindings"/> <figcaption>
+            <p>New bindings</p>
+        </figcaption>
+</figure>
+
+<p>We can take advantage of the <code>chs()</code> channels we already made, and just channel reference them in the bindings section. That way the interface can stay user-friendly (especially for whenever you want to promote these up to the interface of a digital asset or something).</p>
+<h3 id="speed-comparison">Speed Comparison<a hidden class="anchor" aria-hidden="true" href="#speed-comparison">🔗</a></h3>
+<p>Let&rsquo;s do a comparison with the <strong>Performance Monitor</strong>.</p>
+<figure>
+    <img loading="lazy" src="images/perf-test.png"
+         alt="Performance Test"/> <figcaption>
+            <p>Performance Test</p>
+        </figcaption>
+</figure>
+
+<p>With ~112k points we can see that the <code>setpointattrib()</code> method takes about <code>0.081 seconds</code> to cook, whereas the <strong>Attribute Bindings</strong> method takes <code>0.002 seconds</code>! That&rsquo;s a pretty big difference, though <code>0.08</code> seconds is pretty negligible too.</p>
+<p>What happens if we try with a a point cloud consisting of <code>30,000,000</code> points?</p>
+<figure>
+    <img loading="lazy" src="images/perf-test-30m.png"
+         alt="Performance Test - 30mio points"/> <figcaption>
+            <p>Performance Test - 30mio points</p>
+        </figcaption>
+</figure>
+
+<p><strong>Attribute Bindings</strong> wins by a factor of ~30x on my machine. Now the difference between <code>0.13s</code> and <code>3.9s</code> per cook might not seem like a huge amount if you&rsquo;re already waiting a minute or so per-frame to process a heavy point cloud (like a big FLIP sim). But consider that in this example we are writing just a <em>single</em> attribute, in <em>one</em> wrangle. In a real-world setup, you might have several attributes and be doing a few different things in different wrangles and steps which can really add up!</p>
+<h2 id="volumes">Volumes<a hidden class="anchor" aria-hidden="true" href="#volumes">🔗</a></h2>
+<p>This technique is <em>especially</em> useful when dealing with fields in Volume VOPs. Have you ever dived inside a <strong>Gas Turbulence DOP</strong> or any similar nodes? If you look in the Attribute Bindings section, you&rsquo;ll see that SideFX uses these all the time! It&rsquo;s how you&rsquo;re able to specify the name of any <strong>Control Field</strong>, but internally they only need to use one name!</p>
+<p>Let&rsquo;s try it out on our own. We&rsquo;ll create a Volume VOP that adds noise to both <code>density</code> and <code>temperature</code>. There&rsquo;s actually a shortcut toggle we can use without needing to set all the names ourselves.</p>
+<figure>
+    <img loading="lazy" src="images/bind-each-to-density.png"
+         alt="Bind Each to Density"/> <figcaption>
+            <p>Bind Each to Density</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img loading="lazy" src="images/volume-binding-demo.gif"
+         alt="Volume Bindings"/> <figcaption>
+            <p>Volume Bindings</p>
+        </figcaption>
+</figure>
+
+<ol>
+<li>Create a Volume VOP.</li>
+<li>Add some nodes inside. Don&rsquo;t add any extra <strong>Bind Export</strong> nodes, just pipe
+them out to <code>density</code>.</li>
+<li>On the <strong>Volume Bindings</strong> tab uncheck <strong>Autobind by Name</strong>.</li>
+<li>Enable <strong>Bind Each to Density</strong>.</li>
+</ol>
+<p>Now we&rsquo;ve applied the same operation to all of the fields! This is really useful if you&rsquo;re creating any tools that modify volumes, and you want the user to be able to easily run over fields called anything.</p>
+<h2 id="attributes-to-create">Attributes to Create<a hidden class="anchor" aria-hidden="true" href="#attributes-to-create">🔗</a></h2>
+<figure>
+    <img loading="lazy" src="images/attribs-to-create-default.png"
+         alt="Attributes to Create - Default"/> <figcaption>
+            <p>Attributes to Create - Default</p>
+        </figcaption>
+</figure>
+
+<p>This parameter is often overlooked, and its default is just <code>*</code> - which means any attributes referred to in the wrangle using the <code>@</code> syntax will be created if it they don&rsquo;t exist already.</p>
+<p>The default is usually fine. But sometimes, you might be using an attribute temporarily just to do some sort of calculation, and you don&rsquo;t actually want it to be created and passed along through the output. In that case, you can just use the <code>^</code> character plus the attribute name to skip it! This is also useful if you have a tool that <em>allows</em> a user attribute to passed in but does not <em>require</em> it.</p>
+<p>Take this for example:</p>
+<figure>
+  <video class="videoj" width="100%" autoplay loop muted playsinline src="images/attribs-to-create-scenario.mp4"></video>
+  <figcaption><p></p></figcaption>
+</figure>
+<p>We have a setup that modifies the thickness of some curves. By default, the code will apply some randomness. The user is also given the option to provide an attribute by which to multiply the randomized thickness. For clarity, let&rsquo;s provide them a sensible default like <code>thicknessscale</code> (sort of how vellum and other tools across houdini fill it in too).</p>
+<figure>
+    <img loading="lazy" src="images/parm-defaults-and-code.png"
+         alt="Parameter defaults and code"/> <figcaption>
+            <p>Parameter defaults and code</p>
+        </figcaption>
+</figure>
+
+<p>If we structure our code like so:</p>
+<pre tabindex="0"><code class="language-vex" data-lang="vex">float r = rand(@seed + 65536);
+
+f@pscale = r * f@scale * chf(&#34;global_scale&#34;);
+</code></pre><p>with the following attribute bindings:</p>
+<figure>
+    <img loading="lazy" src="images/attribs-to-create-attrib-bindings.png"
+         alt="Attribute Bindings"/> <figcaption>
+            <p>Attribute Bindings</p>
+        </figcaption>
+</figure>
+
+<p>we would expect that the <code>f@pscale</code> attribute is scaled by some random number, and the curves will change shape.</p>
+<p>But what happens if the user doesn&rsquo;t want to do any extra scaling, and they didn&rsquo;t specify any attribute? If no attribute is provided, and the binding is left blank or the attribute doesn&rsquo;t exist we wind up with a bit of an issue&hellip;</p>
+<figure>
+    <img loading="lazy" src="images/zero-scales.gif"
+         alt="Scales are zero"/> <figcaption>
+            <p>Scales are zero</p>
+        </figcaption>
+</figure>
+
+<p>All the scales are now zero! Well that&rsquo;s not really what we want&hellip; if the user doesn&rsquo;t specify an attribute (or if it doesn&rsquo;t exist), we should carry on and happily apply just the randomized value to the thickness. Let&rsquo;s modify the code a bit:</p>
+<pre tabindex="0"><code class="language-vex" data-lang="vex">float @scale = 1.0; // Initialize it in case the user doesn&#39;t
+
+float r = rand(@seed + 65536);
+
+f@pscale = r * @scale * chf(&#34;global_scale&#34;);
+</code></pre><figure>
+    <img loading="lazy" src="images/scales-working.gif"
+         alt="Scales are working now"/> <figcaption>
+            <p>Scales are working now</p>
+        </figcaption>
+</figure>
+
+<p>This works excellently! Now, even though the attribute is missing, everything is just multiplied by <code>1.0</code>, so we&rsquo;re in the clear. But let&rsquo;s look at the attributes now&hellip;</p>
+<figure>
+    <img loading="lazy" src="images/extra-attrib.png"
+         alt="Extra Attribute"/> <figcaption>
+            <p>Extra Attribute</p>
+        </figcaption>
+</figure>
+
+<p>Oh no! Since that default value we have sitting in there wasn&rsquo;t cleared out, and since it doesn&rsquo;t already exist on the points, we wound up creating some attribute called <code>thicknessscale</code> with a value of <code>1.0</code>! That&rsquo;s sort of annoying. If the user didn&rsquo;t ask for an attribute to be created, we should really just leave it alone.</p>
+<p>Leaving it alone is simple. Just exclude it from that <strong>Attributes to Create</strong> parameter.</p>
+<figure>
+    <img loading="lazy" src="images/exclude-attribs.png"
+         alt="Exclude `f@scale` attribute"/> <figcaption>
+            <p>Exclude <code>f@scale</code> attribute</p>
+        </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>* ^scale ^seed
+</span></span></code></pre></div><blockquote>
+<p>The attributes specified in this list are the same as the <em>Vex Parameters</em>
+you&rsquo;re using in your code, even if they are <em>bound</em> to something different.</p>
+</blockquote>
+<figure>
+    <img loading="lazy" src="images/no-extra-attrib.png"
+         alt="No extra attributes left"/> <figcaption>
+            <p>No extra attributes left</p>
+        </figcaption>
+</figure>
+
+<p>If the attribute <em>does</em> exist on the points beforehand, don&rsquo;t worry - this option won&rsquo;t cause it to be deleted. It will still pass through just as expected, with the added bonus that since it&rsquo;s being ignored in the <strong>Attributes to Create</strong> parameter, we aren&rsquo;t able to actually write to it, which means we can&rsquo;t muck it up with our code!</p>
+<h3 id="result">Result<a hidden class="anchor" aria-hidden="true" href="#result">🔗</a></h3>
+<p>Let&rsquo;s see it in action with the user specifying their own scaling attribute on top of our randomization:</p>
+<figure>
+    <img loading="lazy" src="images/custom-attrib.gif"
+         alt="Final Result"/> <figcaption>
+            <p>Final Result</p>
+        </figcaption>
+</figure>
+
+<h2 id="final-notes">Final Notes<a hidden class="anchor" aria-hidden="true" href="#final-notes">🔗</a></h2>
+<h3 id="groups">Groups<a hidden class="anchor" aria-hidden="true" href="#groups">🔗</a></h3>
+<p>We can do most of the same stuff with groups. Just remember than Vex expects the prefix <code>i@group_</code> before group names, which also applies to the <strong>Vex Parameter</strong> parameter in the bindings section.</p>
+<figure>
+    <img loading="lazy" src="images/group-bindings.png"
+         alt="Group Bindings"/> <figcaption>
+            <p>Group Bindings</p>
+        </figcaption>
+</figure>
+
+<figure>
+    <img loading="lazy" src="images/group-bindings-example.png"
+         alt="Group Bindings Example"/> <figcaption>
+            <p>Group Bindings Example</p>
+        </figcaption>
+</figure>
+
+<p>An important note - if you&rsquo;re using the <strong>Output Selection Group</strong> parameter to visualize the group in the viewport (and pass the selection to downstream nodes), note that this parameter is expecting <em><strong>Group Name</strong></em> not the <strong>Vex Parameter</strong>!</p>
+<figure>
+    <img loading="lazy" src="images/output-selection-group.gif"
+         alt="Output Selection Group"/> <figcaption>
+            <p>Output Selection Group</p>
+        </figcaption>
+</figure>
+
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://www.jamesrobinsonvfx.com/tags/vex/">vex</a></li>
+      <li><a href="https://www.jamesrobinsonvfx.com/tags/attributes/">attributes</a></li>
+      <li><a href="https://www.jamesrobinsonvfx.com/tags/tools/">tools</a></li>
+      <li><a href="https://www.jamesrobinsonvfx.com/tags/tips/">tips</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://www.jamesrobinsonvfx.com">James Robinson 🌊</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.0.6/medium-zoom.min.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S+Yti0U7QtuZvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+const images = Array.from(document.querySelectorAll(".post-content img"));
+images.forEach(img => {
+  mediumZoom(img, {
+    margin: 0,  
+    scrollOffset: 40,  
+    container: null,  
+    template: null,  
+    background: 'rgba(0, 0, 0, 0.8)'  
+  });
+});
+</script>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ui on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/ui/</link>
+    <description>Recent content in ui on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/ui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HDA Guide Geometry</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/hda-guide-geometry/</link>
+      <pubDate>Sat, 11 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/hda-guide-geometry/</guid>
+      <description>Add a simple visualizer to your HDA using Houdini&amp;rsquo;s built-in Guide Geometry feature</description>
+    </item>
+    
+    <item>
+      <title>Display Intermediate Results And Visualization Geo in an HDA</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/display-intermediate-results-and-viz-geo/</link>
+      <pubDate>Wed, 01 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/display-intermediate-results-and-viz-geo/</guid>
+      <description>Different methods for switching between visualization geo in an HDA or subnet</description>
+    </item>
+    
+    <item>
+      <title>Evaluating Menu Parameters</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/evaluating-menu-parameters/</link>
+      <pubDate>Mon, 30 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/evaluating-menu-parameters/</guid>
+      <description>Explore the results of evaluating menu parameters with various methods</description>
+    </item>
+    
+    <item>
+      <title>Executing Python Code From a String Parameter</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/executing-python-code-from-a-string-parameter/</link>
+      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/executing-python-code-from-a-string-parameter/</guid>
+      <description>Create a preset on a Null that lets you run Python code from it</description>
+    </item>
+    
+    <item>
+      <title>Multi-Output Display Hotkeys</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/multi-output-display-hotkeys/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/multi-output-display-hotkeys/</guid>
+      <description>Quickly switch the display for nodes with multiple outputs (Vellum, Split, RBD, etc.) without a Null</description>
+    </item>
+    
+  </channel>
+</rss>

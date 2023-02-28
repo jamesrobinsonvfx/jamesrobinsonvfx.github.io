@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>tip on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/tip/</link>
+    <description>Recent content in tip on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/tip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inspect Node Data</title>
+      <link>https://www.jamesrobinsonvfx.com/projects/inspect-node-data/</link>
+      <pubDate>Sat, 14 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/projects/inspect-node-data/</guid>
+      <description>SOP-level HDA for storing, retrieving, and inspecting parameters from nodes</description>
+    </item>
+    
+    <item>
+      <title>Transform RBD Pieces with Alembic Layering</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/xform-pieces-alembic-layering/</link>
+      <pubDate>Tue, 06 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/xform-pieces-alembic-layering/</guid>
+      <description>Create two separate Alembic caches for geometry and transforms and combine them later</description>
+    </item>
+    
+    <item>
+      <title>Viewport Draw Modes</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/viewport-draw-modes/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/viewport-draw-modes/</guid>
+      <description>Set different draw settings per viewport shading mode</description>
+    </item>
+    
+  </channel>
+</rss>

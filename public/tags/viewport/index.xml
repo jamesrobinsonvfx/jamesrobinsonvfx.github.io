@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>viewport on James Robinson 🌊</title>
+    <link>https://www.jamesrobinsonvfx.com/tags/viewport/</link>
+    <description>Recent content in viewport on James Robinson 🌊</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.jamesrobinsonvfx.com/tags/viewport/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Viewport Draw Modes</title>
+      <link>https://www.jamesrobinsonvfx.com/blog/viewport-draw-modes/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.jamesrobinsonvfx.com/blog/viewport-draw-modes/</guid>
+      <description>Set different draw settings per viewport shading mode</description>
+    </item>
+    
+  </channel>
+</rss>
