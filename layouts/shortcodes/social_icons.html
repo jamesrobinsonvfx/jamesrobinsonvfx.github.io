@@ -1,0 +1,7 @@
+<div class="social-icons">
+  {{- range $.Site.Params.socialIcons }}
+  <a href="{{ trim .url " " }}" style="box-shadow: 0 0px;" target="_blank" rel="noopener noreferrer me" title="{{ (.title | default .name) | title }}">
+      {{ partial "svg.html" . }}
+  </a>
+  {{- end }}
+</div>

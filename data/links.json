@@ -1,0 +1,202 @@
+[
+    {
+        "title": "📖 Houdini Documentation",
+        "link": "https://www.sidefx.com/docs/houdini/index.html",
+        "description": "Houdini manual."
+    },
+    {
+        "title": "📹 REF FX",
+        "link": "http://ref-fx.com/",
+        "description": "Great site with lots of real world and CG FX references."
+    },
+    {
+        "title": "👥 od|force Forums",
+        "link": "https://forums.odforce.net/",
+        "description": "Go-to place for community input."
+    },
+    {
+        "title": "🐸 Toadstorm Nerdblog",
+        "link": "https://www.toadstorm.com/blog/",
+        "description": "Henry Foster's amazing blog. Some of the best guides for the stuff you really need to know about."
+    },
+    {
+        "title": "👾 Juraj Tomori",
+        "link": "https://jurajtomori.wordpress.com/author/seals77/",
+        "description": "Really cool TD blog. HDA versioning and Rain Instancing write-ups are great. Also has an awesome GitHub."
+    },
+    {
+        "title": "👾 Eetu daily.hip",
+        "link": "https://dailyhip.wordpress.com/",
+        "description": "Many great hip files."
+    },
+    {
+        "title": "👾 CG Wiki",
+        "link": "https://www.tokeru.com/cgwiki/?title=Houdini",
+        "description": "The OG Houdini instructor. Best Gifs around."
+    },
+    {
+        "title": "☁️ Sergen Eren",
+        "link": "https://sergeneren.com/",
+        "description": "Really great writeups on clouds."
+    },
+    {
+        "title": "🧶 Entagma",
+        "link": "https://entagma.com/",
+        "description": "Another amazing all-around Houdini learning site."
+    },
+    {
+        "title": "👾 Houdini Gubbins",
+        "link": "https://houdinigubbins.wordpress.com/",
+        "description": "Super technical, way above my head. Really neat papers and implementations."
+    },
+    {
+        "title": "👾 Fredrik Averpil",
+        "link": "https://fredrikaverpil.github.io/",
+        "description": "Very helpful python stuff here. Inspiration for my site's current PaperMod Hugo theme too."
+    },
+    {
+        "title": "🖥️ Houdini Blueprints",
+        "link": "hdbp.io",
+        "description": "Run Houdini setups interactively in a browser."
+    },
+    {
+        "title": "📈 Easings",
+        "link": "https://easings.net",
+        "description": "Cheat sheet for keyframe tangents."
+    },
+    {
+        "title": "📸 HDRI Haven",
+        "link": "https://hdrihaven.com/",
+        "description": "A place with many high-quality HDRIs for lighting."
+    },
+    {
+        "title": "🐛 Rich Lord",
+        "link": "https://www.richlord.com/images",
+        "description": "Lots of fun setups. Some cool locomotion stuff with RBDs and Vellum."
+    },
+    {
+        "title": "🇯🇵 Junchiro Horikawa",
+        "link": "https://www.youtube.com/channel/UC5NStd0QmACnWs9DzqJ3vHg",
+        "description": "Cool channel, very vex-focused. His Algorithmic design lessons are top-notch."
+    },
+    {
+        "title": "🔥 Peter Claes",
+        "link": "https://www.youtube.com/channel/UCZMPkkgnAFghvffxaTh6CsA",
+        "description": "Great instructor, amazing learning content."
+    },
+    {
+        "title": "🤯 XAPKOHHEH",
+        "link": "https://www.patreon.com/xapkohheh/posts",
+        "description": "Mindblowing setups. Check out what really goes on when you animate a cube."
+    },
+    {
+        "title": "👾 Ryoji CG Memo",
+        "link": "https://sites.google.com/site/fujitarium/home",
+        "description": "So many useful snippets. Found myself visiting this frequently starting out."
+    },
+    {
+        "title": "🔮 Shadertoy",
+        "link": "https://www.shadertoy.com/",
+        "description": "Many implementations of ridiculously cool shaders. Not sure where all these people are, but there are tons of cool shaders to look at here."
+    },
+    {
+        "title": "🍃 Nature of Code",
+        "link": "https://natureofcode.com/",
+        "description": "Free e-book written to explore coding with Processing. Very interesting."
+    },
+    {
+        "title": "📕 Red Blob Games",
+        "link": "https://www.redblobgames.com",
+        "description": "Great breakdowns of algorithms and whitepapers."
+    },
+    {
+        "title": "📗 The Book of Shaders",
+        "link": "https://thebookofshaders.com/",
+        "description": "Another free e-book about writing shaders. Have only just started it."
+    },
+    {
+        "title": "🔦 Chris Brejon - CG Cinamatography Archives",
+        "link": "https://chrisbrejon.com/cg-cinematography/",
+        "description": "Another book-style site that covers more of the artistic side of CG lighting."
+    },
+    {
+        "title": "🎥 Zeno Pelgrims",
+        "link": "http://zenopelgrims.com/project-shadersxyz.html",
+        "description": "Original creator of shaders.xyz! Now writing cool imagers for Arnold, including Lentil."
+    },
+    {
+        "title": "➗ Fundza",
+        "link": "http://www.fundza.com/index.html",
+        "description": "Interesting CG math coding tutorials and examples."
+    },
+    {
+        "title": "👾 Andreas Böinghoff",
+        "link": "https://aboeinghoff.com/category/houdini/vop/",
+        "description": "Another cool blog about VOPs."
+    },
+    {
+        "title": "∿ Tuxedo Labs - Blue Noise",
+        "link": "https://blog.tuxedolabs.com/2018/12/07/the-importance-of-good-noise.html",
+        "description": "Writeup about noise."
+    },
+    {
+        "title": "💪 Lee Griggs - Arnold Rendering Blog",
+        "link": "https://leegriggs.com/",
+        "description": "Cool blog from one of the Arnold devs."
+    },
+    {
+        "title": "💪 Steven Blair - Arnold Support Blog",
+        "link": "https://arnoldsupport.com/",
+        "description": "Another blog from Arnold dev Steven Blair. Really useful writeups, especially the one about visibility bitmasking."
+    },
+    {
+        "title": "☢️ Nukepedia",
+        "link": "https://www.nukepedia.com/",
+        "description": "Go-to place for Nuke plugins and gizmos. Make sure you get an account so can you download stuff."
+    },
+    {
+        "title": "☢️ Comp Fu",
+        "link": "http://www.comp-fu.com/tag/nuke/",
+        "description": "Various Nuke blog posts and tutorials."
+    },
+    {
+        "title": "👾 Doctor Hou Doodles",
+        "link": "http://houdoodles.blogspot.com/2016/07/procedural-circle-pattern-2.html",
+        "description": "Another blog with some interesting setups."
+    },
+    {
+        "title": "👾 CG Render DNA",
+        "link": "https://cgrenderdna.blogspot.com/2018/10/how-to-normalize-volume-displacement.html",
+        "description": "Very similar layout to Doctor Hou Doodles above, but more rendering-oriented."
+    },
+    {
+        "title": "👗 I, Houdini",
+        "link": "http://ihoudini.blogspot.com/2013/11/cloth-tear-geometry-and-shading-detail.html",
+        "description": "Really cool write up about cloth tearing in Houdini."
+    },
+    {
+        "title": "🇯🇵 Quiita (Japanese)",
+        "link": "https://qiita.com/kit2cuz/items/f1704b3c9205dbb47775",
+        "description": "Japanese blog with some useful info about Alembic."
+    },
+    {
+        "title": "🇯🇵 Dear Houdini (Japanese)",
+        "link": "https://nkvfx.memo.wiki/d/read%20packed%20primitive",
+        "description": "Another Japanese blog with a lot of vex snippets."
+    },
+    {
+        "title": "🎨 Heribert Raab",
+        "link": "https://heribertraab.com/",
+        "description": "Some cool rendering art."
+    },
+    {
+        "title": "🎨 Heribert Raab (Blog)",
+        "link": "https://www.artstation.com/schwungsau/blog",
+        "description": "Blog related to the above link."
+    },
+    {
+        "title": "🔥 Sadjad Rabiee",
+        "link": "https://www.youtube.com/c/sadjadrabiee",
+        "description": "Awesome youtube channel with tons of great Pyro techniques."
+    }
+]

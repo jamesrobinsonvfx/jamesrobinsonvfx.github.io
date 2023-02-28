@@ -1,0 +1,9 @@
+{
+    "greetings": [
+        {"language": "english", "token": "hi", "label": "Hi"},
+        {"language": "german", "token": "hallo", "label": "Hallo"},
+        {"language": "te reo", "token": "kiaora", "label": "Kia ora"},
+        {"language": "swedish", "token": "hej", "label": "Hej hej"},
+        {"language": "japanese", "token": "konnichiwa", "label": "こんにちは"}
+    ]
+}

@@ -1,0 +1,52 @@
+{{- define "main" }}
+
+{{- if not .IsHome | and .Title }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>
+    {{ .Title }}
+    {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+    <a href="index.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9" />
+        <path d="M4 4a16 16 0 0 1 16 16" />
+        <circle cx="5" cy="19" r="1" />
+      </svg>
+    </a>
+    {{- end }}
+  </h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description | markdownify }}
+  </div>
+  {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+<!-- Start: Loop through Gist snppet feed and render them -->
+{{ $gistPath := printf "https://api.github.com/users/%s/gists" $.Site.Params.githubUsername }}
+{{ $gistJSON := getJSON $gistPath }}
+{{ range $gistJSON }}
+  <div>
+    <h3>{{ .description }}</h3>
+    <br>
+    <!-- {{ range .files }}
+      <pre>{{ .filename }}</pre>
+    {{ end }} -->
+    <script type="application/javascript" src="https://gist.github.com/{{ .owner.login }}/{{ .id }}.js"></script>
+    <br>
+  </div>
+{{ end }}
+<!-- End: Gist snippet feed -->
+
+
+{{- end }}{{- /* end main */ -}}
