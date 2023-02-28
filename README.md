@@ -21,3 +21,8 @@ New project page
 ```
 hugo new project projects/new-project
 ```
+
+Start local server
+```
+hugo server -D
+```
