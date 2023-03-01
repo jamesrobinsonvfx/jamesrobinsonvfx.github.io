@@ -121,4 +121,5 @@ privacy:
 # Misc settings
 enableEmoji: true
 
-ignoreErrors = ["error-remote-getjson"]
+ignoreErrors:
+  - error-remote-getjson
