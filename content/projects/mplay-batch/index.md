@@ -20,7 +20,7 @@ repo: mplay_batch
 
 Menu add-on for MPlay to quickly batch write sequences.
 
-> {{ github_repo text="View it on GitHub 🚀"}}
+> {{< github_repo text="🚀 View it on GitHub" >}}
 
 > For the full overview and docs, [check 'em out here](https://jamesrobinsonvfx.github.io/mplay_batch)
 
