@@ -18,7 +18,7 @@ params:
 
   # Misc Settings
   ShowCodeCopyButtons: true
-  defaultTheme: auto
+  defaultTheme: dark #auto
   cover:
     linkFullImages: true
 
