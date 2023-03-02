@@ -16,7 +16,7 @@
   <!-- Github Link -->
   {{ if isset .Page.Params "repo" }}
   <article class="post-attachment">
-    <header class="attachment-header"><h4>{{ partial "fontawesome.html" "github" }} Github Repo</h4></header>
+    <header class="attachment-header"><h4>{{ partial "fontawesome.html" "github" }} Github Repo <sup>⌝</sup></h4></header>
     {{ $repo_basename := print $.Site.Params.githubUsername "/" $.Page.Params.repo }}
     <p class="attachment-description">{{ $repo_basename }}</p>
     <a class="attachment-link" href="https://github.com/{{ $repo_basename }}"></a>
