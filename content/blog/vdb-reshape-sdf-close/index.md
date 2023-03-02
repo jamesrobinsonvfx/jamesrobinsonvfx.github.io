@@ -11,9 +11,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["tips", "houdini", "vdb", "sdf", "volume"]
+hipfile: houdini/hip/jamesr_vdbreshapesdfclose.hiplc
 ---
 
-> Hipfile: [jamesr_vdbreshapesdfclose.hip](houdini/hip/jamesr_vdbreshapesdfclose.hiplc)
+{{< attachments >}}
 
 ### Dilate and Erode (Old)
 Most people are probably familiar with the following workflow for sealing up gaps and holes in an SDF using 2 **VDB Reshape SDF** nodes:

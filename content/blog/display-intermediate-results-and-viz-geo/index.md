@@ -12,9 +12,10 @@ cover:
 categories: ["houdini", "python"]
 tags: ["houdini", "ui", "python", "hda", "subnet", "tools"]
 ShowToc: true
+hipfile: houdini/hip/jamesr_displayintermediateresultsandvisualizationgeo.hiplc
 ---
 
-> Hipfile: [jamesr_displayintermediateresultsandvisualizationgeo.hip](houdini/hip/jamesr_displayintermediateresultsandvisualizationgeo.hiplc)
+{{< attachments >}}
 
 {{< youtube "tEfFO4VoslY" >}}
 

@@ -11,9 +11,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["houdini", "tips", "hscript"]
+hipfile: houdini/hip/jamesr_ftrim.hiplc
 ---
 
-> Hipfile: [jamesr_ftrim.hip](houdini/hip/jamesr_ftrim.hiplc)
+{{< attachments >}}
 
 ## Problem
 Sometimes you want to reference the value of a parameter and display it as a string to put in a Font SOP, or the Viewport Comment of a Camera node when you're wedging sims or making some sort of visualizer.

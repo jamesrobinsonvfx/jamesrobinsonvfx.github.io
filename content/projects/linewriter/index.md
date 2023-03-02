@@ -12,9 +12,10 @@ cover:
     relative: true
 categories: ["houdini", "tools"]
 tags: ["houdini", "tools", "visualization", "utility"]
+repo: linewriter
 ---
 
-{{< github_repo >}}
+{{< attachments >}}
 
 # Linewriter
 

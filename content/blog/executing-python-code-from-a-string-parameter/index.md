@@ -12,9 +12,10 @@ cover:
 categories: ["houdini"]
 tags: ["tips", "ui", "python"]
 ShowToc: true
+hipfile: houdini/hip/jamesr_executingpythonfromstring.hiplc
 ---
 
-> Hipfile: [jamesr_executingpythonfromstring.hiplc](houdini/hip/jamesr_executingpythonfromstring.hiplc)
+{{< attachments >}}
 
 # Overview
 

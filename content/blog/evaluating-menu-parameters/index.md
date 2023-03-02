@@ -12,7 +12,11 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["reference", "ui", "houdini", "parameters", "python", "menu"]
+hipfile: houdini/hip/jamesr_evaluatingmenuparameters.hiplc
+attachments: ["greetings.json"]
 ---
+
+{{< attachments >}}
 
 # Menu Parameters & Evaluation Results
 
@@ -31,8 +35,6 @@ I can never remember off the top of my head when a menu parameter is going to ev
 Houdini offers a few ways to both create and evaluate dropdown menu parameters.
 
 The way you configure these menu parameters affect how they get evaluated in different contexts (hscript, Python, parameter callbacks, etc.). Let's take a look at what that means, and come up with a quick reference table that we can use when debugging or creating new interfaces.
-
-> Hipfile: [jamesr_evaluatingmenuparameters.hiplc](houdini/hip/jamesr_evaluatingmenuparameters.hiplc)
 
 # Menu Parameter Types
 

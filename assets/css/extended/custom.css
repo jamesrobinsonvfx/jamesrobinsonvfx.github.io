@@ -23,11 +23,11 @@
     color: coral;
 } */
 
-details > summary {
+.post-attachments details > summary {
     list-style-type: '📁';
 }
 
-details[open] > summary {
+.post-attachments details[open] > summary {
     list-style-type: '📂';
 }
 

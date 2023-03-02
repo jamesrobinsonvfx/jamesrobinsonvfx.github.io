@@ -12,15 +12,14 @@ cover:
 categories: [houdini, alembic]
 tags: [tip, rbd, alembic]
 ShowToc: true
+hipfile: houdini/hip/jamesr_alembicrbdlayers.hiplc
 ---
 
-> Hipfile: [jamesr_alembicrbdlayers.hip](houdini/hip/jamesr_alembicrbdlayers.hiplc)
->
-> Or follow along on [hdbp.io](https://hdbp.io/xsx5HQz2)
-
+{{< attachments >}}
 
 {{< video src="images/xform-pieces.mp4" >}}
 
+Follow along on [hdbp.io](https://hdbp.io/xsx5HQz2)
 
 ## Overview
 There are plenty of ways to transfer RBD data from one application to another. Some facilities might have proprietary tools to make this pretty straightforward and quick. Others might use [USD](https://graphics.pixar.com/usd/docs/index.html). But what if you don't have either option?

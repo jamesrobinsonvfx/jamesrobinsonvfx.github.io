@@ -12,9 +12,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["tips", "vex", "vops"]
+hipfile: houdini/hip/jamesr_vexsource.hiplc
 ---
 
-> Hipfile: [jamesr_vexsource.hiplc](houdini/hip/jamesr_vexsource.hiplc)
+{{< attachments >}}
 
 Houdini offers several ways to duplicate and reuse nodes.
 
