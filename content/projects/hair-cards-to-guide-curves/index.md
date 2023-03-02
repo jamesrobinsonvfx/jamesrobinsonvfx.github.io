@@ -12,6 +12,7 @@ cover:
     relative: true
 categories: ["houdini", "tools"]
 tags: ["houdini", "tools", "hair"]
+repo: cards_to_curves
 ---
 
 ## Overview
@@ -21,7 +22,7 @@ A few weeks ago, my friend and co-worker [Omar Taher](https://www.artstation.com
 ## Get it
 Download the latest release [here](https://github.com/jamesrobinsonvfx/cards_to_curves/releases/latest/download/cards_to_curves.zip).
 
-Full repo [here](https://github.com/jamesrobinsonvfx/cards_to_curves).
+{{< attachments >}}
 
 Inside the `houdini18.5/hda` folder you can grab the HDA and put it someplace where Houdini will find it. Otherwise, you can install it as a [Houdini Package](https://www.sidefx.com/docs/houdini/ref/plugins.html):
 

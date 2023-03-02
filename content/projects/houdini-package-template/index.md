@@ -17,7 +17,7 @@ repo: houdini_package_template
 
 **Template repo for creating simple (or not so simple) Houdini Packages.**
 
-> {{< github_repo >}}
+{{< attachments >}}
 
 
 ## Overview

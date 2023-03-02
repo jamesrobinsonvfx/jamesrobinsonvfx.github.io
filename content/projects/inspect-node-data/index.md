@@ -15,7 +15,7 @@ tags: ["houdini", "tools", "visualization", "tip" ]
 repo: inspectnodedata
 ---
 
-> {{< github_repo >}}
+{{< attachments >}}
 
 {{< vimeo 591895400 >}}
 

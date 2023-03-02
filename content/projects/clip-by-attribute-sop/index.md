@@ -19,7 +19,8 @@ repo: clipbyattrib
 >
 > [Sample Hipfile](https://github.com/jamesrobinsonvfx/clipbyattrib/releases/latest/download/jamesr_clipbyattrib.hiplc)
 >
-> {{< github_repo >}}
+
+{{< attachments >}}
 
 # Overview
 

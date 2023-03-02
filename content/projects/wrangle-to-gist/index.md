@@ -15,7 +15,7 @@ tags: ["houdini", "git", "gist", "python", "utility"]
 repo: wranglegist
 ---
 
-{{< github_repo >}}
+{{< attachments >}}
 
 ## Overview
 

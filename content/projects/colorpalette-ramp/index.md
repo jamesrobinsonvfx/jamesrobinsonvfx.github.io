@@ -17,6 +17,6 @@ repo: colorpaletteramp
 
 # Color Palette Ramp
 
-> {{< github_repo text="For the full README, view it on GitHub" >}}
+{{< attachments >}}
 
 {{< vimeo 423896113 >}}

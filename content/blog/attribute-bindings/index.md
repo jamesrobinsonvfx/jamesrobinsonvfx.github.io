@@ -12,9 +12,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["vex", "attributes", "tools", "tips"]
+hipfile: "houdini/hip/jamesr_attributebindings.hiplc"
 ---
 
-> Hipfile: [jamesr_attributebindings.hiplc](houdini/hip/jamesr_attributebindings.hiplc)
+{{< attachments >}}
 
 ## Basics
 

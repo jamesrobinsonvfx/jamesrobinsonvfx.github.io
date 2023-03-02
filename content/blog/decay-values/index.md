@@ -12,9 +12,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["solver", "tips", "vex"]
+hipfile: houdini/hip/jamesr_decay.hiplc
 ---
 
-> Hipfile: [jamesr_decay.hip](houdini/hip/jamesr_decay.hiplc)
+{{< attachments >}}
 
 One of the most common use cases for the **Solver SOP** is to accumulate values over time.
 

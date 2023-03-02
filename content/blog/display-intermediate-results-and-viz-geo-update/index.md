@@ -10,9 +10,10 @@ cover:
     alt: "Cover Photo"
     caption: "Slightly nicer way to output using a negative index"
     relative: true
+hipfile: houdini/hip/jamesr_displayintermediateresultsandvisualizationgeoupdate.hiplc
 ---
 
-> Hipfile: [jamesr_displayintermediateresultsandvisualizationgeoupdate.hiplc](houdini/hip/jamesr_displayintermediateresultsandvisualizationgeoupdate.hiplc)
+{{< attachments >}}
 
 {{< video src="images/demo-menu.mp4" >}}
 
