@@ -11,9 +11,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["tips", "houdini", "ui", "hda", "visualization", "tools"]
+hipfile: "houdini/hip/jamesr_hdaguidegeometry.hip"
 ---
 
-> Hipfile: [jamesr_hdaguidegeometry.hip](houdini/hip/jamesr_hdaguidegeometry.hip)
+{{< attachments >}}
 
 {{< youtube "da_803EPCx0" >}}
 

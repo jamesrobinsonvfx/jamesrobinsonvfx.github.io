@@ -1,0 +1,111 @@
+.post-attachments {
+    position: relative;
+    margin-bottom: calc(var(--gap) / 2);
+    padding: var(--gap);
+    background: var(--entry);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+/* Show pointer finger icon over details */
+.post-attachments details summary {
+    cursor: pointer;
+}
+
+/* Keep summary marker on the same line */
+.post-attachments details summary > * {
+    display: inline;
+    padding-left: 0.5rem;
+}
+
+/* Could be fun to color it sometime */
+/* .post-attachments details summary::marker {
+    color: coral;
+} */
+
+details > summary {
+    list-style-type: '📁';
+}
+
+details[open] > summary {
+    list-style-type: '📂';
+}
+
+
+.post-attachments article {
+    display: grid;
+}
+
+.post-attachment{
+    position: relative;
+    margin-bottom: calc(var(--gap) / 2);
+    padding: var(--gap);
+    background: var(--entry);
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+    /* overflow: hidden */
+}
+
+.attachment-header h2, h3, h4 {
+    font-size: 24px;
+    line-height: 1.3;
+    float: left;
+}
+
+.attachment-description {
+    margin: 8px 0;
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* Don't underline links */
+.post-attachment a {
+    box-shadow: none;
+}
+
+.post-attachment:active{
+    transform: scale(0.96);
+}
+
+/* Don't scale the list version */
+#other-attachments:active {
+    transform: scale(1);
+}
+
+.post-attachment img {
+    float: left;
+}
+
+.post-attachment a, li {
+    color: var(--secondary);
+    font-size: 14px;
+    list-style-type: none;
+}
+
+.post-attachment li a:hover {
+    color: var(--primary);
+}
+
+/* Fill the whole parent like a big button */
+.attachment-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* Color hipfile links orangey */
+a.jumpto-hipfile {
+    box-shadow: none;
+    color: var(--secondary);
+}
+
+a.jumpto-hipfile:hover {
+    color: coral;
+}
