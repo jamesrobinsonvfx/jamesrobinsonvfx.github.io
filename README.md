@@ -74,3 +74,10 @@ If `hipfile` is set in the front-matter, you can use the shortcode to jump to th
 ```
 {{< jumpto_hipfile >}}
 ```
+
+Great set of gist CSS stylesheets
+
+[Gallery](https://github.com/lonekorean/gist-syntax-themes/blob/master/stylesheets/solarized-light.css)
+[GitHub](https://github.com/lonekorean/gist-syntax-themes/tree/master/stylesheets)
+
+Put some CSS in `/static` so that it doesn't get minified and we can pull it in when theme changes from dark/light.

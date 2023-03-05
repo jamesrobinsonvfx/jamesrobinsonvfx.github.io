@@ -15,3 +15,17 @@ images.forEach(img => {
 });
 </script>
 <!-- End Click-to-zoom images -->
+
+<!-- Gist theme toggle -->
+<script type="text/javascript">
+  var link = document.createElement("link");
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  if (document.body.className.includes("dark")) {
+    link.href = "/css/gists-highlight-dark.css"
+  } else {
+    link.href = "/css/gists-highlight-light.css"
+  }
+  document.getElementsByTagName("head")[0].appendChild(link);
+</script>
+<!-- End Gist theme toggle -->
