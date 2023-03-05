@@ -22,6 +22,9 @@ params:
   cover:
     linkFullImages: true
 
+  assets:
+    disableHLJS: true
+
   # Home Page
   homeInfoParams:
     Title: Blog 🪶
@@ -81,16 +84,16 @@ outputs:
 markup:
   # Syntax highlighting
   highlight:
-    anchorLineNos: false
+    # anchorLineNos: false
     codeFences: true
-    guessSyntax: false
+    guessSyntax: true
     hl_Lines: ""
     hl_inline: false
     lineAnchors: ""
     lineNoStart: 1
-    lineNos: false
+    lineNos: true
     lineNumbersInTable: true
-    noClasses: true
+    # noClasses: true
     noHl: false
     style: nord #nord or fruity or rose-pine-moon or xcode-dark might be nice too
     tabWidth: 4
