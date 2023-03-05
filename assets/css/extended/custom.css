@@ -46,7 +46,7 @@
     /* overflow: hidden */
 }
 
-.attachment-header h2, h3, h4 {
+.attachment-header :is(h2, h3, h4) {
     font-size: 24px;
     line-height: 1.3;
     float: left;
@@ -81,7 +81,7 @@
     float: left;
 }
 
-.post-attachment a, li {
+.post-attachment :is(a, li) {
     color: var(--secondary);
     font-size: 14px;
     list-style-type: none;
