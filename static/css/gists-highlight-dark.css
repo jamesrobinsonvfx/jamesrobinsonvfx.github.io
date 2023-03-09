@@ -1,9 +1,6 @@
 
 /* Dark theme: Obsidian */
 /* https://github.com/lonekorean/gist-syntax-themes/blob/master/stylesheets/obsidian.css */
-body {
-  background-color: red;
-}
 body .gist .highlight {
     background: #293134;
   }
