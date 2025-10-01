@@ -13,13 +13,13 @@ Uses the PaperMod theme for Hugo.
 New Houdini blog post
 
 ```
-hugo new hou-post posts/new-post
+hugo new --kind hou-post blog/new-post-name
 ```
 
 New project page
 
 ```
-hugo new project projects/new-project
+hugo new --kind project/new-project-name
 ```
 
 Start local server
