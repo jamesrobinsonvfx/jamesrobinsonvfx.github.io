@@ -31,7 +31,7 @@ Let’s say we have a multiparm interface like this one, and we want the **Voxel
 
 {{< figure src="images/scenario.png" title="" caption="Example scenario" alt="Example scenario" >}}
 
-At first it might seem easy enough, but inserting and deleting multiparm instances in previous versions of Houdini would often cause issues where channel references that were set as default values would break or point to an unexpected parameter after inserting/deleting. Now that Houdini 21 gives us the ability to easily shuffle multiparms around, this problem could start cropping up more, so let’s check out how we can make sure our defaults are stable.
+At first it seems easy enough, but in older versions of Houdini, inserting or deleting multiparm instances often broke default channel references. With Houdini 21 letting us easily shuffle around multiparms, this issue might show up more, so let’s check out how we can make sure our defaults are stable.
 
 ## But first, Some Quick Facts About Multiparms
 [Houdini Docs: Multiparm Block](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#multiparm-block)
@@ -85,7 +85,7 @@ Though if you look at the default expression for each parameter, you'll see that
 ch("psep2") * ch("gridscale2")
 ```
 
-At first this might seem like no biggie. And you may never notice it if all you ever do is add/remove from the bottom of the multiparm block using the **[+,-,Clear]** buttons.
+At first this might seem like no biggie. You might never notice it if you only add or remove instances from the bottom using the **[+,-,Clear]** buttons.
 
 But what happens if we start to reorder these? Let's move **Sim 3** to **Sim 1**'s position:
 
@@ -103,7 +103,7 @@ One solution would be to revert each **Voxel Size** parameter to its default:
 
 {{< figure src="images/hash-token-hscript-reorder-revert.png" title="" caption="**Right Click → Revert to Defaults**" alt="**Right Click → Revert to Defaults**" >}}
 
-But this is pretty unreasonable to ask people to do, especially when there are many parameters. There must be a better way!
+But this is pretty unreasonable to ask people to do, especially when there are many parameters. There has to be a better way!
 
 #### Pros & Cons
 * ✅ Can be useful for simple cases where you want the value to match the index number.
@@ -114,7 +114,7 @@ But this is pretty unreasonable to ask people to do, especially when there are m
 
 ## Hscript Solution: Use `$CH`
 
-Since the `#` character gets swapped out and hardcoded to the multiparm index number, we can't rely on it for relative references when reordering parameters since the parameter name **does** update and get a new index number.
+Since the `#` character is replaced with the multiparm index, we can’t rely on it for relative references when reordering because the parameter name itself updates.
 
 So we need something a bit more flexible. We need to be able to look at the current parameter and get its multiparm index. This is straightforward in Python, but before we start jumping there let's see if there's a simpler way with Hscript. Since the index is part of the parameter's name, maybe we should look there first. But how can we get the parameter's name?
 
@@ -250,7 +250,7 @@ The first instance looks correct, but it seems like the order of the `#` tokens 
 
 ### 🐍 Python to the Rescue
 
-When all else fails or you have a particularly interesting scenario, you can always use a Python expression. `hou.Parm` has several methods for dealing with multiparms, the most useful one in our case being `hou.Parm.multiParmInstanceIndices`.
+When all else fails or you have a particularly interesting scenario, you can always switch to a Python expression. `hou.Parm` has several methods for dealing with multiparms, the most useful one in our case being `hou.Parm.multiParmInstanceIndices`.
 
 > Houdini 21 added a few more multiparm methods. Check 'em out!
 >
