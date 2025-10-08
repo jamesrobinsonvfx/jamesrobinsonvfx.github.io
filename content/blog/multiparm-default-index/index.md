@@ -12,7 +12,10 @@ cover:
     relative: true
 categories: ["houdini"]
 tags: ["tip", "multiparm"]
+hipfile: houdini/hip/jamesr_multiparmdefaults.hipnc
 ---
+
+{{< attachments >}}
 
 *Written for H21, but applies to previous versions of Houdini as well.*
 
@@ -34,7 +37,7 @@ At first it might seem easy enough, but inserting and deleting multiparm instanc
 [Houdini Docs: Multiparm Block](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#multiparm-block)
 * Each time you increment/decrement the multiparm number, you create/remove a multiparm ***instance***.
 * Houdini adds a number or ***index*** to each instance.
-* In the Parameter Editor, multiparms are templates, and the parm name itself has a hash in it which gets replaced by the multiparm instance index.
+* In the Parameter Editor, multiparms are templates, and the parm name itself has a hash in it, which gets replaced by the multiparm instance index.
 * Nested multiparms use multiple hash tokens to denote their level. Something like `#_#` for the third element in the second multi-parm would become `2_3`.
 * Prior to H21, multiparms could not be re-ordered. Only insert, append, and remove operations were supported.
 * Hash tokens `#` can be used in default parameter expressions, and the default value for the parameter instance will have the index hard-coded in its default value (more on that below).
@@ -113,9 +116,9 @@ But this is pretty unreasonable to ask people to do, especially when there are m
 
 Since the `#` character gets swapped out and hardcoded to the multiparm index number, we can't rely on it for relative references when reordering parameters since the parameter name **does** update and get a new index number.
 
-So we need something a bit more flexible. We need to be able to to look at the current parameter and get its multiparm index. This is straightforward in Python, but before we start jumping there let's see if there's a simpler way with Hscript. Since the index is part of the parameter's name, maybe we should look there first. But how can we get the parameter's name?
+So we need something a bit more flexible. We need to be able to look at the current parameter and get its multiparm index. This is straightforward in Python, but before we start jumping there let's see if there's a simpler way with Hscript. Since the index is part of the parameter's name, maybe we should look there first. But how can we get the parameter's name?
 
-AFAIK there is no Hscript function like `opname` for parameters - but there is a variable `$CH` which will return the current channel name!
+AFAIK there is no Hscript function like `opname` for parameters - but there is a variable `$CH`, which will return the current channel name!
 
 > [Houdini Docs: $CH](https://www.sidefx.com/docs/houdini/network/expressions.html#channels)
 
@@ -184,7 +187,7 @@ Sometimes parameters will already have digits in their names. This could cause a
 
 #### User-created Parameter Names
 
-When the digit is part of your own naming scheme, it's usually easier for you to just change it. If you absolutely must have a digit in the name, try to to make sure the `#` token is at the **end** of the parameter name if possible:
+When the digit is part of your own naming scheme, it's usually easier for you to just change it. If you absolutely must have a digit in the name, try to make sure the `#` token is at the **end** of the parameter name if possible:
 
 {{< figure src="images/parmname-user-digit-end.png" title="" caption="❌ Don't put your digit after the `#` token if you can help it." alt="❌ Don't put your digit after the `#` token if you can help it." >}}
 
@@ -279,7 +282,7 @@ Don't forget to change the language of the default expression:
 
 #### Explanation
 
-First we need to get a reference to the current parameter object which we can do with `hou.evaluatingParm()`:
+First we need to get a reference to the current parameter object, which we can do with `hou.evaluatingParm()`:
 
 {{< figure src="images/evaluatingParm-example.png" title="" caption="Use `evaluatingParm()` to get the `hou.Parm` object for the parameter." alt="Use `evaluatingParm()` to get the `hou.Parm` object for the parameter. You can leave the `hou.` out of Python parameter expressions." >}}
 
