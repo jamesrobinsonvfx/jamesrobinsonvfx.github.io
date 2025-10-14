@@ -1,39 +1,28 @@
 <div class="post-attachments">
-
-  <!-- <header><h2>Attachments</h2></header> -->
   <details open>
-    <summary><h2>Attachments</h2></summary>
-  <!-- Hipfile -->
-  {{ if isset .Page.Params "hipfile" }}
-  <article class="post-attachment" id="hipfile-attachment">
-    <header class="attachment-header"><h4>{{ partial "fontawesome.html" "houdinibadge"}}Hipfile</h4></header>
-    {{ $hipname := path.Split .Page.Params.hipfile }}
-    <p class="attachment-description">{{ $hipname.File }}</p>
-    <a class="attachment-link" href="{{ .Page.Params.hipfile }}"></a>
-  </article>
-  {{ end }}
-
-  <!-- Github Link -->
-  {{ if isset .Page.Params "repo" }}
-  <article class="post-attachment">
-    <header class="attachment-header"><h4>{{ partial "fontawesome.html" "github" }} Github Repo <sup>⌝</sup></h4></header>
-    {{ $repo_basename := print $.Site.Params.githubUsername "/" $.Page.Params.repo }}
-    <p class="attachment-description">{{ $repo_basename }}</p>
-    <a class="attachment-link" href="https://github.com/{{ $repo_basename }}"></a>
-  </article>
-  {{ end }}
-
-  <!-- Loop through "attachments" front matter for anything else -->
-  {{ if isset .Page.Params "attachments" }}
-  <article class="post-attachment" id="other-attachments">
-    <header class="attachment-header"><h4>{{ partial "fontawesome.html" "file" }} Other</h4></header>
+    <summary accesskey="a" title="(Alt + A)">
+      <span class="details">Attachments</span>
+    </summary>
     <ul>
+      <!-- Hipfile -->
+      {{ if isset .Page.Params "hipfile" }}
+      {{ $hipname := path.Split .Page.Params.hipfile }}
+      <li><a class="attachment-link" href="{{ .Page.Params.hipfile }}">{{ partial "fontawesome.html" "houdinibadge"}} {{ $hipname.File }}</a></li>
+      {{ end }}
+
+    <!-- Github Link -->
+    {{ if isset .Page.Params "repo" }}
+    {{ $repo_basename := print $.Site.Params.githubUsername "/" $.Page.Params.repo }}
+    <li><a class="attachment-link" href="https://github.com/{{ $repo_basename }}">{{ partial "fontawesome.html" "github" }} {{ $repo_basename }}<sup>⌝</sup></a></li>
+    {{ end }}
+
+    <!-- Loop through "attachments" front matter for anything else -->
+    {{ if isset .Page.Params "attachments" }}
       {{ range .Page.Params.attachments }}
         {{ $attachment_fname := path.Split .}}
-        <li><a href="{{ . }}">{{ $attachment_fname.File }}</a></li>
+        <li><a class="attachment-link" href="{{ . }}">📄 {{ $attachment_fname.File }}</a></li>
       {{ end }}
+    {{ end }}
     </ul>
-  </article>
-  {{ end }}
 </details>
 </div>
