@@ -1,28 +1,30 @@
 <div class="post-attachments">
   <details open>
     <summary accesskey="a" title="(Alt + A)">
-      <span class="details">Attachments</span>
+      <span class="details">📂 Attachments</span>
     </summary>
     <ul>
       <!-- Hipfile -->
       {{ if isset .Page.Params "hipfile" }}
       {{ $hipname := path.Split .Page.Params.hipfile }}
-      <li><a class="attachment-link" href="{{ .Page.Params.hipfile }}">{{ partial "fontawesome.html" "houdinibadge"}} {{ $hipname.File }}</a></li>
+      <li><a class="attachment-link" href="{{ .Page.Params.hipfile }}">{{ partial "fontawesome.html" "houdinibadge"}} {{
+          $hipname.File }}</a></li>
       {{ end }}
 
-    <!-- Github Link -->
-    {{ if isset .Page.Params "repo" }}
-    {{ $repo_basename := print $.Site.Params.githubUsername "/" $.Page.Params.repo }}
-    <li><a class="attachment-link" href="https://github.com/{{ $repo_basename }}">{{ partial "fontawesome.html" "github" }} {{ $repo_basename }}<sup>⌝</sup></a></li>
-    {{ end }}
+      <!-- Github Link -->
+      {{ if isset .Page.Params "repo" }}
+      {{ $repo_basename := print $.Site.Params.githubUsername "/" $.Page.Params.repo }}
+      <li><a class="attachment-link" href="https://github.com/{{ $repo_basename }}">{{ partial "fontawesome.html"
+          "github" }} {{ $repo_basename }}<sup>⌝</sup></a></li>
+      {{ end }}
 
-    <!-- Loop through "attachments" front matter for anything else -->
-    {{ if isset .Page.Params "attachments" }}
+      <!-- Loop through "attachments" front matter for anything else -->
+      {{ if isset .Page.Params "attachments" }}
       {{ range .Page.Params.attachments }}
-        {{ $attachment_fname := path.Split .}}
-        <li><a class="attachment-link" href="{{ . }}">📄 {{ $attachment_fname.File }}</a></li>
+      {{ $attachment_fname := path.Split .}}
+      <li><a class="attachment-link" href="{{ . }}">📄 {{ $attachment_fname.File }}</a></li>
       {{ end }}
-    {{ end }}
+      {{ end }}
     </ul>
-</details>
+  </details>
 </div>

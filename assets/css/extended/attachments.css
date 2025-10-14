@@ -16,14 +16,6 @@
     user-select: none;
 }
 
-.post-attachments summary::before {
-  content: "📂";
-}
-
-.post-attachments[open] summary::before {
-  content: "📁";
-}
-
 .post-attachments .details {
     display: inline;
     font-weight: 500;
@@ -32,8 +24,9 @@
 .post-attachments ul {
     list-style: none;
     padding: 0;
-    margin:  0 0 0 1.75rem;
+    margin: 0 0 0 1.75rem;
 }
+
 .post-attachments ul li a {
     display: block;
     text-decoration: none !important;
