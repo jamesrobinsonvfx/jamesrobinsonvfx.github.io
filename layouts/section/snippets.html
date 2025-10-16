@@ -34,7 +34,8 @@
 
 <!-- Start: Loop through Gist snppet feed and render them -->
 {{ $gistPath := printf "https://api.github.com/users/%s/gists" $.Site.Params.githubUsername }}
-{{ $gistJSON := getJSON $gistPath }}
+{{ $res := resources.GetRemote $gistPath }}
+{{ $gistJSON := $res | transform.Unmarshal }}
 {{ range $gistJSON }}
   <div>
     <h3>{{ .description }}</h3>

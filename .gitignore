@@ -1,0 +1,20 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*.bak
+*.tmp
+.idea/
+.vscode/
+*.log
+
+# Houdini
+*_bak*.hip*

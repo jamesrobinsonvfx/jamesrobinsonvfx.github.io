@@ -1,0 +1,47 @@
+.post-attachments {
+    margin-bottom: var(--content-gap);
+    border: 1px solid var(--border);
+    background: var(--code-bg);
+    border-radius: var(--radius);
+    padding: 0.4em;
+}
+
+.dark .post-attachments {
+    background: var(--entry);
+}
+
+.post-attachments details summary {
+    cursor: zoom-in;
+    margin-inline-start: 10px;
+    user-select: none;
+}
+
+.post-attachments .details {
+    display: inline;
+    font-weight: 500;
+}
+
+.post-attachments ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0 1.75rem;
+}
+
+.post-attachments ul li a {
+    display: block;
+    text-decoration: none !important;
+    color: inherit;
+    padding: 0.25 0.5rem;
+    outline: none;
+    box-shadow: none;
+}
+
+.attachment-link {
+    font-family: monospace;
+    font-size: 0.8rem;
+}
+
+/* Could be fun to color it sometime */
+/* .post-attachments details summary::marker {
+    color: coral;
+} */

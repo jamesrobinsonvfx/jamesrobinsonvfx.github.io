@@ -58,4 +58,4 @@ Of course, this also works in a **Font SOP** too.
 Here's a handy snippet for programmatically wrapping channel references in
 `ftrim()`. Taken from the [Linewriter](https://github.com/jamesrobinsonvfx/linewriter) tool.
 
-{{< gist jamesrobinsonvfx f17a0ec451428fbe71f9e58c1800225f >}}
+<script src="https://gist.github.com/jamesrobinsonvfx/f17a0ec451428fbe71f9e58c1800225f.js"></script>
