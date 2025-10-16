@@ -1,14 +1,14 @@
 ---
-title: "Multiparm Default Expressions"
+title: "Reliable Multiparm Default Expressions"
 date: 2025-10-02T12:42:34+13:00
-draft: true
+draft: false
 ShowReadingTime: true
 ShowToc: true
 summary: "Set the default value of a parameter in a multiparm so that it always references another parameter in the same multiparm instance."
 cover:
     image: images/preview.png
     alt: "Cover Photo"
-    caption: "Cover Photo"
+    caption: "Tips for setting reliable multiparm default channel expressions"
     relative: true
 categories: ["houdini"]
 tags: ["tip", "multiparm"]
@@ -16,6 +16,13 @@ hipfile: houdini/hip/jamesr_multiparmdefaults.hipnc
 ---
 
 {{< attachments >}}
+
+{{< tldr >}}
+* Use the `#` token for simple cases where you want to harcode the multiparm instance index into the default value of a parameter (*can cause issues when reordering*).
+* For non-nested multiparms you can use `opdigits($CH)` as a quick way to get the multiparm instance index in Hscript.
+* For nested multiparms use `hou.Parm.multiParmInstanceIndices()` to get a tuple of multiparm instances.
+{{< /tldr >}}
+
 
 *Written for H21, but applies to previous versions of Houdini as well.*
 
@@ -40,8 +47,9 @@ At first it seems easy enough, but in older versions of Houdini, inserting or de
 * In the Parameter Editor, multiparms are templates, and the parm name itself has a hash in it, which gets replaced by the multiparm instance index.
 * Nested multiparms use multiple hash tokens to denote their level. Something like `#_#` for the third element in the second multi-parm would become `2_3`.
 * Prior to H21, multiparms could not be re-ordered. Only insert, append, and remove operations were supported.
-* Hash tokens `#` can be used in default parameter expressions, and the default value for the parameter instance will have the index hard-coded in its default value (more on that below).
+* Hash tokens `#` can be used in default parameter expressions, and the default value for the parameter instance will have the index hardcoded in its default value (more on that below).
 
+---
 
 ## Problem Overview
 
@@ -112,6 +120,8 @@ But this is pretty unreasonable to ask people to do, especially when there are m
 * ❌ Hardcodes the index digit into the parameter's default value.
 * ❌ Can lead to unexpected behavior when the order of the instances in the multiparm block changes, since the index the instance was created as is hardcoded into the default value and ***does not update*** when re-ordered.
 
+---
+
 ## Hscript Solution: Use `$CH`
 
 Since the `#` character is replaced with the multiparm index, we can’t rely on it for relative references when reordering because the parameter name itself updates.
@@ -177,6 +187,8 @@ or
 * ❌ Depending on the parm name, this could break depending on where the hash character is in the name if there are numbers in the parm name already, either from a user or a parm with size>1 (see below).
 * ❌ Can be cumbersome to write Hscript sometimes.
 
+---
+
 ## Limitations of `opdigits($CH)`
 
 While the `opdigits($CH)` solution is quick to implement and works pretty well in a lot of cases, it does have a few drawbacks.
@@ -215,6 +227,8 @@ myparameter#_#
 
 In this case `opdigits` won't give us enough info.
 
+---
+
 ## Nested Multiparms
 
 As mentioned above, our `opdigits` trick breaks down once we start nesting multiparms.
@@ -247,6 +261,15 @@ chs("seq#") + "_" + chs("shot#_#")
 {{< figure src="images/nested-example-hash-hscript-backwards.png" title="" caption="The numbers are backwards! This feels like a bug 🐛." alt="The numbers are backwards! This feels like a bug 🐛." >}}
 
 The first instance looks correct, but it seems like the order of the `#` tokens gets messed up as we add more. My guess is that since we used the `#` token already in `chs("seq#)`, that by the time it gets to `chs("shot#_#")` the parser sees that we've used the 2 `#` tokens already instead of treating each `chs()` section separately. Switching the expression to a string literal and using backticks doesn't help either, so we might be out of luck for this case!
+
+#### Where Does it Work?
+**However** this will work just fine as before if you're referencing multiparms in the same nesting level, like so:
+
+{{< figure src="images/nested-hash-token-working.png" title="" caption="Using `#_#` like this works." alt="Using `#_#` like this works." >}}
+
+```c
+ch("psep#_#") * ch("gridscale#_#")
+```
 
 ### 🐍 Python to the Rescue
 
@@ -312,6 +335,8 @@ return f"{seq}_{shot}"
 * ✅ More flexible than Hscript.
 * ❌ Requires a Python expression and knowledge of HOM.
 * ❌ Needs a bit more care in exception handling to not be annoying depending on what you’re doing.
+
+---
 
 ## Conclusion
 
